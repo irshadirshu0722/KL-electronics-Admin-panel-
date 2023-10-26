@@ -1,0 +1,36 @@
+
+.payment-mode-control-section .row{
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr;
+
+}
+.payment-mode-control-section .row table td{
+    padding: 20px;
+    border: 1px solid white;
+
+}
+
+.payment-mode-control-section .row .payment-control form div{
+    display: grid;
+    grid-template-columns: 1fr 70px 70px;
+    padding: 20px;
+}
+.payment-mode-control-section .row .payment-control form {
+   display: flex;
+   flex-direction: column;
+}
+.payment-mode-control-section .row table {
+    width: 100%;
+ 
+ }
+
+
+@media (max-width:770px) {
+    .payment-mode-control-section .row{
+        
+        grid-template-columns: 1fr ;
+    
+    }
+    
+}

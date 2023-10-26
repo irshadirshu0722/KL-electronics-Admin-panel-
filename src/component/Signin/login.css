@@ -1,0 +1,215 @@
+
+.signin-body {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+   
+    background-color: rgb(35, 37, 37);
+    margin: 0px;
+    margin-top: 50px;
+}
+.signin-body .container{
+    position: relative;
+    width: 380px;
+    height: 440px;
+    background: #1c1c1c;
+    border-radius: 8px;
+    overflow:hidden
+
+}
+.signin-body .container::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background:linear-gradient(0deg,transparent,
+    transparent ,#45f3ff,#45f3ff,#45f3ff);
+    transform-origin:bottom right;
+    z-index: 1;
+    animation: animate 6s linear infinite;
+
+}
+.signin-body .container::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background:linear-gradient(0deg,transparent,
+    transparent ,#45f3ff,#45f3ff,#45f3ff);
+    transform-origin:bottom right;
+    z-index: 1;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+
+}
+.signin-body .borderline{
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+.signin-body .borderline::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background:linear-gradient(0deg,transparent,
+    transparent ,#ff2770,#ff2770,#ff2770);
+    transform-origin:bottom right;
+    z-index: 1;
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s;
+}
+.signin-body .borderline::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background:linear-gradient(0deg,transparent,
+    transparent ,#ff2770,#ff2770,#ff2770);
+    transform-origin:bottom right;
+    z-index: 1;
+    animation: animate 6s linear infinite;
+    animation-delay: -4.5s;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.signin-body .container form {
+    position: absolute;
+    inset: 4px;
+    background: #222;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+.signin-body .container form h3{
+    text-align: center;
+    font-size: 30px;
+    color: whitesmoke;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+.signin-body .container form .inputbox{
+    position: relative;
+    width: 100%;
+    margin-top: 35px;
+}
+.signin-body .container form .inputbox input{
+    position: relative;
+    width: 100%;
+    padding:20px 10px 10px ;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    color:#ffffff ;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+    border: none;
+}
+.signin-body .container form .inputbox span{
+   position: absolute;
+   left: 0;
+   padding: 20px 0px 10px;
+   pointer-events: none;
+   color: #8f8f8f;
+   font-size: 1em;
+   letter-spacing: 0.05em;
+   transition: 0.5s;
+   color: white    ;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+
+}
+
+
+.signin-body .container form .inputbox i{
+    position: absolute;
+    left: 0;
+    bottom:0 ;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 4px;
+    transition: 0.5s;
+    overflow: hidden;
+    pointer-events: none;
+}
+.signin-body .container form .inputbox input:focus ~ i
+
+{
+    height: 44px;
+
+}
+.signin-body .container form .error{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+@media (max-width:400px){
+    .signin-body .container form .error{
+        font-size: 13px;
+    }
+}
+
+.signin-body .container form .inputbox input:focus{
+    
+    color: rgb(7, 4, 4);
+    }
+.signin-body .container form .links{
+  display: flex;
+  justify-content: space-between;
+
+}
+.signin-body .container form .links a{
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+
+.signin-body .container form .links a:hover,
+.signin-body .container form .links a:nth-child(2)
+{
+    color: white;
+
+}
+.signin-body .submit{
+    border: none;
+    outline: none;
+    padding: 9px 25px ;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600px;
+    width:100px;
+    margin-top:10px ;
+}
+.signin-body .submit:active{
+    opacity: 0.8;
+}
+@media (max-width:380px) {
+
+    .signin-body .container,.signin-body .container::before,.signin-body .container::after,.signin-body .borderline::after,.signin-body .borderline::before{
+    width: 340px;
+   
+
+}
+}

@@ -1,0 +1,20 @@
+.header .container {
+    padding: 0;
+   }
+   .header .row{
+       display: grid;
+       grid-template-columns: 1fr;
+   }
+  .header{
+    background-color: rgb(35, 37, 37);
+  } 
+   
+   .header .row .image-div img{ 
+       width: 100%;
+   }
+   @media (max-width: 580px) {
+    .header .row{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }

@@ -1,0 +1,119 @@
+.coupon-code-section .heading{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 35px;
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color: #e6e2e2;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+.coupon-code-section .row{
+    display: grid;
+    
+}
+.coupon-not-available{
+    text-align: center;
+    font-size: 4dvh;
+    color: rgb(202, 200, 200);
+}
+.add-coupon-code-btn{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.coupon-code-section .row table{
+    width: 100%;
+}
+
+.coupon-code-section .row .cell{
+    padding: 10px;
+    border: 2px solid rgb(164, 163, 163);
+}
+.coupon-code-section .row table thead .cell{
+    font-family: "Arial Black", Gadget, sans-serif;
+    
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color: #f2efef;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+   text-transform: none;
+}
+.coupon-not-available{
+    color: rgb(193, 192, 192);
+    display: flex;
+    justify-content: center;
+}
+
+.coupon-code-section .row table tbody .cell{
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color: rgb(208, 205, 205);
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+@media (max-width:990px) {
+   
+
+    .coupon-code-section .row table thead{
+        display: none;
+    }
+
+    .coupon-code-section .row table tbody{
+        display: grid;
+        row-gap: 30px;
+
+    }
+    .coupon-code-section .row table tbody  tr{
+        display: grid;
+        border: 2px solid rgb(117, 24, 24);
+    }
+
+    .coupon-code-section .row table tbody .id::before{
+        content:"Coupon ID" ;
+
+    }
+    .coupon-code-section .row table tbody .code::before{
+        content:"Code" ;
+        
+    }
+    .coupon-code-section .row table tbody .rate::before{
+        content:"Discount Rate" ;
+        
+    }.coupon-code-section .row table tbody .amount::before{
+        content:"Discount Amount" ;
+        
+    }.coupon-code-section .row table tbody .min-order::before{
+        content:"Min_Order" ;
+        
+    }.coupon-code-section .row table tbody .created::before{
+        content:"Created" ;
+        
+    }.coupon-code-section .row table tbody .updated::before{
+        content:"Updated" ;
+        
+    }.coupon-code-section .row table tbody .delete::before{
+        content:"Delete" ;
+        
+    }.coupon-code-section .row table tbody .edit::before{
+        content:"Edit" ;
+        
+    }
+    .coupon-code-section .row table tbody .cell{
+        display: flex;
+        justify-content: space-between;
+    }
+}

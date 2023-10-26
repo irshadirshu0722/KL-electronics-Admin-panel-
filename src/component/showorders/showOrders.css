@@ -1,0 +1,195 @@
+.show-orders-section .gri   d{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 50px;
+}
+
+.show-orders-section{
+    width: 100%;
+
+    height: 100%;
+    background-color: rgb(35, 37, 37);
+
+    
+    padding: 0;
+    margin: 0;
+}
+.show-orders-section .all-order-heading{
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(35, 37, 37);
+    margin: 0px;
+    border-bottom: 5px solid rgb(121, 118, 118);
+
+    color: white;
+    margin-bottom: 20px;
+
+}
+.show-orders-section .all-order-heading .page-heading{
+    font-size: 40px;
+    color: azure;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 40px;
+    position: relative;
+    height: 100%;
+
+}
+
+.show-orders-section table{
+
+    
+    width: 100%;
+    height: 100%;
+}
+.show-orders-section table td{
+
+    
+   padding: 10px 20px;
+   border: 2px solid rgb(119, 118, 118);
+   color: white;
+}
+.show-orders-section .heading{
+    width: 100%;
+    color: rgb(179, 176, 176);
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-items: center;
+}
+.show-orders-section table .next-pre-btn {
+    height: 70px;
+    /* background-color: #26282b; */
+    
+}
+ 
+.show-orders-section table .next-pre-btn td:first-child{
+     
+    /* table  */
+    text-align: right;
+    padding-right: 5px;
+    border: none;
+
+  
+ 
+ }
+
+ .show-orders-section table .next-pre-btn td:last-child{
+    
+    text-align: left;
+    padding-left: 15px;
+    border: none;
+
+}
+
+.show-orders-section table .view svg{
+    width: 25px;
+    fill: rgb(255, 255, 255);
+    stroke:rgb(255, 255, 255);
+}
+.show-orders-section table .view {
+ text-align: center;
+}
+
+.show-orders-section .prev-next-btn{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    margin-top: 10px;
+}
+.show-orders-section .prev-next-btn div{
+    width: 80px;
+    
+}
+
+@media (max-width:770px){
+    .show-orders-section table thead{
+        display: none;
+    }
+    
+    .show-orders-section table tbody tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 20px;
+        border-bottom:2px solid rgb(192, 186, 186) ;
+
+    }
+    .show-orders-section table td {
+        border: none;
+
+    }
+    .show-orders-section table tbody tr td{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom:2px solid rgb(51, 51, 51) ;
+
+    }
+    .show-orders-section table tbody tr td:nth-child(1)::before{
+        content: "Order ID";
+        color: white;
+    }
+    .show-orders-section table tbody tr td:nth-child(2)::before{
+        content: "User Name";
+        color: white;
+    }
+    .show-orders-section table tbody tr td:nth-child(2)::before{
+        content: "Date";
+        color: white;
+    }
+    
+    .show-orders-section table tbody tr td:nth-child(3)::before{
+        content: "Price";
+        color: white;
+    }
+    
+    .show-orders-section table tbody tr td:nth-child(4)::before{
+        content: "Total";
+        color: white;
+    }
+    .show-orders-section table tbody tr td:nth-child(5)::before{
+        content: "Profit";
+        color: white;
+    }
+    .show-orders-section table tbody tr td:nth-child(6)::before{
+        content: "View";
+        color: white;
+    }
+    .show-orders-section table tbody tr td:nth-child(7)::before{
+        content: "Status";
+        color: white;
+    }
+    .show-orders-section table tbody tr td:nth-child(5) a{
+        width: fit-content;
+    }
+
+    .show-orders-section table tbody .next-pre-btn {
+      display: flex;
+      flex-direction: row;
+      border-bottom: none;
+      height: auto;
+    }
+
+    .show-orders-section table tbody  .next-pre-btn td:first-child::before{
+    
+      display: none;
+    }
+    .show-orders-section table tbody  .next-pre-btn td:last-child:before{
+    
+        display: none;
+        }
+    .show-orders-section table tbody  .next-pre-btn td{
+
+            width: fit-content;
+            column-span: none;
+            border-bottom: none;
+
+}
+}

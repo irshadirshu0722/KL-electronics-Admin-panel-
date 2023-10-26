@@ -1,0 +1,156 @@
+
+.edit-couponcode-section .row {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    /* min-height: 100vh; */
+    
+    }
+    .edit-couponcode-section{
+        background-color: #232525;
+        /* min-height: 100vh; */
+        padding: 20px 0px;
+        margin: 0;
+        padding-bottom: 30px;
+    
+    }
+    
+    .edit-couponcode-section .row .heading{
+        font-size: 40px;
+        color: rgb(140, 137, 137);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    padding-bottom: 20px;
+    }
+    .edit-couponcode-section .row form{
+        font-size: 20px;
+        color: rgb(160, 160, 160);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    }
+    .edit-couponcode-section form .form-group{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        /* border-bottom: 2px solid grey ; */
+        row-gap: 10px;
+    
+    }
+    .edit-couponcode-section .row form input{
+        background-color: rgb(186, 184, 184);
+        border: none;
+        border-radius: 5px;
+    }
+    input{
+        outline: none;
+        color: rgb(0, 0, 0);
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+    
+    
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+    
+    .edit-couponcode-section input{
+        padding: 5px 10px;
+    }
+    
+    .edit-couponcode-section form .contains-div div,
+    .edit-couponcode-section form .information-div div
+    
+    {
+        display: flex;
+        gap: 20px;
+    }
+    .edit-couponcode-section form .contains-div div button,
+    .edit-couponcode-section form .information-div div button
+    
+    {
+        height: 45px;
+    }
+    
+    .edit-couponcode-section form .form-group .list-of-item{
+        grid-column: 2;
+    
+    }
+    .edit-couponcode-section form .form-group .list-of-item button{  
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .edit-couponcode-section form .image-div{
+        width: 100%;
+        display: flex;
+    }
+    .edit-couponcode-section form .image-div ul{
+        display: flex;
+        gap: 30px;
+        overflow-x: scroll;
+        width: 100%;
+        max-width: 890px;
+        list-style: none;
+        flex-direction: row;
+       
+    }
+    .edit-couponcode-section form .image-div ul li{
+       min-width: 220px;
+        min-height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+    }
+    .edit-couponcode-section form .image-div ul li img{
+        
+         user-select: none;
+     }
+    .edit-couponcode-section form .image-div ul input{
+        display: none;
+        
+    }
+    
+    
+    @media (max-width:990px){
+        .edit-couponcode-section form .form-group{
+            display: flex;
+            flex-direction: column;
+            /* border-bottom: 2px solid grey ; */
+        
+        }
+        .edit-couponcode-section form .contains-div{
+            grid-template-columns: 1fr;
+    
+        }
+    }
+    
+    
+    @media (max-width:770px){
+        .edit-couponcode-section form .information-div  .add-section{
+            display: flex;
+            flex-direction: column;
+        }
+    
+    }
+    
+    @media (max-width:570px){
+        
+        .edit-couponcode-section .row {
+           padding: 0px 20px;
+            
+            }
+            .edit-couponcode-section .row form{
+             
+            gap: 5px;
+       
+            }
+    }

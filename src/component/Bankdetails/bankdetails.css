@@ -1,0 +1,57 @@
+
+.bank-details-control-section .row{
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr;
+    
+
+}
+.bank-details-control-section .row table td{
+    padding: 20px;
+    border: 1px solid white;
+
+}
+
+.bank-details-control-section .row .bank-control form div{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    padding: 15px 20px;
+}
+.bank-details-control-section .row .bank-control form {
+   display: flex;
+   flex-direction: column;
+}
+.bank-details-control-section .row table {
+    width: 100%;
+    margin-top: 12px;
+ 
+ }
+
+
+@media (max-width:770px) {
+    .bank-details-control-section .row{
+        
+        grid-template-columns: 1fr ;
+    
+    }
+    .bank-details-control-section .row .bank-control form div{
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        padding: 20px 0px;
+    }
+    
+}
+
+@media (max-width:350px) {
+    .bank-details-control-section .row{
+        
+        grid-template-columns: 1fr ;
+    
+    }
+    .bank-details-control-section .row .bank-control form div{
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        padding: 20px 0px;
+    }
+    
+}

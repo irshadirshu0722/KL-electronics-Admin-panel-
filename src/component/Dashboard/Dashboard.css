@@ -1,0 +1,442 @@
+
+.dashboard-section{
+  width: 100%;
+  margin: 0;
+  background-color: #232525;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  /* min-height: 93vh; */
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+ 
+}
+
+
+.product-transition-statics .grid,
+.order-total-status-statics .grid
+{
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  column-gap: 20px;
+}
+.product-transition-statics .grid .total-details {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    
+  }
+  
+ .product-transition-statics .grid  .transition-statics{
+    grid-column: 2;
+    grid-row: 1;
+    
+  }
+  
+ 
+
+  .product-transition-statics .grid  .transition-statics .statics,
+  .order-total-status-statics .grid .order-status .statics
+  {
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+    justify-content: space-between;
+    row-gap: 10px;
+  }
+  .product-transition-statics .grid  .transition-statics .statics .icon-div  {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .order-category-product-status-section .statics .icon-div,
+  .order-total-status-statics .grid .order-status .statics .icon-div
+  {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-transition-statics .grid  .transition-statics .statics div  i{
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+  }
+  .order-category-product-status-section .statics .highlights{
+    background-color: #343a40;
+    border-radius: 5px;
+
+  }
+  .product-transition-statics .grid  .transition-statics .statics .sales,
+  .order-total-status-statics .grid .order-status .statics .pending
+  {
+    background-color: #9055fd;
+    border-radius: 5px;
+   
+  }
+  .order-category-product-status-section .statics svg,
+  .order-total-status-statics .grid .order-status .statics svg{
+  width: 30px;
+  fill: white;
+  stroke: white;
+  }
+.order-total-status-statics .grid .order-status .statics .confirmed svg,
+.order-total-status-statics .grid .order-status .statics .shipped svg
+{
+    margin-top: 5px;
+
+}
+.order-category-product-status-section .statics .orders{
+  background-color: #6c757d;
+  border-radius: 5px;
+}
+  .product-transition-statics .grid  .transition-statics .statics .user,
+  .order-total-status-statics .grid .order-status .statics .confirmed{
+    background-color: #56ca00;
+    border-radius: 5px;
+
+}
+.order-category-product-status-section .statics .products{
+  background-color: #ffc107;
+  border-radius: 5px;
+
+}
+  .product-transition-statics .grid  .transition-statics .statics .product,
+  .order-total-status-statics .grid .order-status .statics .shipped{
+
+    background-color:#ffb400;
+    border-radius: 5px;
+   
+  }
+  .order-category-product-status-section .statics .categories{
+    background-color: #007bff;
+    border-radius: 5px;
+
+  }
+  .product-transition-statics .grid  .transition-statics .statics .profit,
+  .order-total-status-statics .grid .order-status .statics .completed{
+
+    background-color:     #16b1ff;
+    border-radius: 5px;
+   
+  }
+  .order-category-product-status-section .statics .coupons{
+    background-color: #17a2b8;
+    border-radius: 5px;
+
+  }
+  .order-total-status-statics .grid .order-status .statics .cancelled{
+
+    background-color:     #bd0f0f;
+    border-radius: 5px;
+
+   
+  }
+  .order-total-status-statics .grid .order-status .statics .cancelled svg{
+
+    width: 40px ;
+    
+   
+  }
+  .order-category-product-status-section .statics div,
+  .product-transition-statics .grid  .transition-statics  .statics div,
+  .order-total-status-statics .grid .order-status .statics div
+  {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+
+   
+
+  }
+  .order-category-product-status-section .grid .stat,
+  .product-transition-statics .grid  .transition-statics  .statics div .stat,
+  .order-total-status-statics .grid .order-status .statics div .stat
+
+  {
+    display: flex;
+    flex-direction: column;
+   gap: 0px;
+   margin: 0;
+   
+
+  }
+  .product-transition-statics .grid  .transition-statics  .statics div .stat div:first-child,
+  .order-total-status-statics .grid  .order-status  .statics div .stat div:first-child
+  {
+    font-weight: 600;
+
+  }
+  .order-category-product-status-section .grid .heading,
+  .product-transition-statics .transition-statics .section-heading,
+  .order-total-status-statics .order-status .section-heading
+  {
+    color:#16b1ff;
+    color-scheme: light;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+    /* line-height: 22px; */
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 8px;
+    margin-top: 0px;
+    overflow-wrap: break-word;
+    text-align: start;
+    text-rendering: optimizelegibility;
+}
+.order-category-product-status-section .grid,
+  .product-transition-statics .transition-statics,
+  .order-total-status-statics .order-status
+  {
+    box-shadow: rgba(156, 156, 156, 0.255) 0px 6px 16px 0px;
+    padding: 15px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+height: fit-content;
+color: rgb(200, 189, 189);
+}
+.order-category-product-status-section .grid div{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+
+}
+.product-transition-statics .transition-statics .this-month,
+.product-transition-statics .transition-statics .this-day
+    {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.product-transition-statics .transition-statics .this-month-heading,
+.product-transition-statics .transition-statics .this-day-heading
+    {
+        color: rgb(255, 255, 255);
+        color-scheme: light;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.15px;
+        /* line-height: 22px; */
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 8px;
+        margin-top: 0px;
+        overflow-wrap: break-word;
+        text-align: start;
+        text-rendering: optimizelegibility;
+}
+
+.product-transition-statics div:first-child .total-profit,
+.product-transition-statics .total-Product-sold,
+.order-total-status-statics .total-orders
+
+{
+  box-shadow: rgba(156, 156, 156, 0.255) 0px 6px 16px 0px;
+  padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.product-transition-statics .total-profit div:first-child,
+.product-transition-statics .total-Product-sold div:first-child
+
+{
+    display: flex;
+    flex-direction: column;
+    /* gap: 30px; */
+}
+.product-transition-statics .total-profit div:last-child,
+.product-transition-statics .total-Product-sold div:last-child
+
+
+{
+    width: 58px;
+    height:58px;
+}
+.order-total-status-statics .total-orders div:last-child{
+  width: 70px;
+  height:70px;
+}
+.product-transition-statics .total-profit div:first-child div:last-child,
+.product-transition-statics .total-Product-sold div:first-child div:last-child,
+
+.order-total-status-statics .total-orders div:first-child div:last-child
+
+{
+    padding-top: 20px;
+    color: rgb(200, 189, 189);
+    color-scheme: light;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+}
+.product-transition-statics .total-profit div:last-child img,
+.product-transition-statics .total-Product-sold div:last-child img,
+.order-total-status-statics .total-orders div:last-child img
+
+
+{
+    width: 100%;
+    height: 100%;
+}
+.product-transition-statics .total-profit div:first-child div:first-child,
+.product-transition-statics .total-Product-sold div:first-child div:first-child,
+.order-total-status-statics .total-orders div:first-child div:first-child
+
+
+{
+  color: rgb(84, 79, 90);
+  color-scheme: light;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  /* line-height: 22px; */
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 8px;
+  margin-top: 0px;
+  overflow-wrap: break-word;
+  text-align: start;
+  text-rendering: optimizelegibility;
+}
+
+
+@media (max-width:990px){
+  .product-transition-statics .grid,
+  .order-total-status-statics .grid
+  {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-transition-statics .grid .total-details,
+  .order-total-status-statics .grid .total-orders
+   {
+    grid-column: 1;
+    grid-row: 1;
+    
+    
+  }
+  
+ .product-transition-statics .grid  .transition-statics,
+ .order-total-status-statics .grid .order-status
+ {
+    grid-column: 1;
+    grid-row: 2;
+    
+  }
+}
+@media (max-width:770px){
+  .product-transition-statics .grid  .transition-statics .statics,
+  .order-total-status-statics .grid .order-status .statics
+  {
+  
+    grid-template-columns: 1fr 1fr ;
+    row-gap: 20px;
+    
+  }
+}
+@media (max-width:400px){
+  .product-transition-statics .total-profit div:first-child div:first-child,
+.product-transition-statics .total-Product-sold div:first-child div:first-child,
+.order-total-status-statics .total-orders div:first-child div:first-child
+
+
+{
+ 
+  font-size: 20px;
+
+}
+}
+@media (max-width:3400px){
+  .product-transition-statics .total-profit div:first-child div:first-child,
+.product-transition-statics .total-Product-sold div:first-child div:first-child,
+.order-total-status-statics .total-orders div:first-child div:first-child
+
+{
+ 
+  font-size: 18px;
+  color:#16b1ff;
+
+}
+}
+@media (max-width:400px){
+  .product-transition-statics .grid  .transition-statics .statics,
+  .order-total-status-statics .grid .order-status .statics
+  {
+  
+    grid-template-columns: 1fr  ;
+    row-gap: 20px;
+    
+  }
+}
+
+.order-category-product-status-section .statics{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.dashboard-section .policy-deliverychargge-bankdetails-control-section .buttons{
+    box-shadow: rgba(156, 156, 156, 0.255) 0px 6px 16px 0px;
+  padding: 15px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 40px;
+}
+ .dashboard-section .order-category-product-buttons-section  .buttons{
+  box-shadow: rgba(156, 156, 156, 0.255) 0px 6px 16px 0px;
+  padding: 15px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 40px;
+}
+@media (max-width:1000px){
+  .order-category-product-status-section .statics{
+    flex-direction: column;
+     
+     
+     gap: 30px;
+     margin: 0;
+    
+  }
+  .dashboard-section .order-category-product-buttons-section  .buttons{
+    
+     flex-direction: column;
+     
+     align-items: center;
+     gap: 30px;
+    
+  }
+  .dashboard-section .order-category-product-buttons-section  .buttons button{
+    
+    width: 180px;
+   
+ }
+}
+
+@media (max-width:1000px){
+  .dashboard-section .policy-deliverychargge-bankdetails-control-section   .buttons{
+    
+     flex-direction: column;
+     
+     align-items: center;
+     gap: 30px;
+    
+  }
+  .dashboard-section .policy-deliverychargge-bankdetails-control-section   .buttons button{
+    
+    width: 200px;
+   
+ }
+}

@@ -1,0 +1,41 @@
+
+.policy-details-control-section .row{
+    display: grid;
+    
+    grid-template-columns: 1fr 
+    
+
+}
+.policy-details-control-section .row table td{
+    padding: 20px;
+    border: 1px solid white;
+
+}
+
+.policy-details-control-section .row .policy-control form div{
+    display: grid;
+    grid-template-columns:  1fr;
+    padding: 12px 20px;
+    border: 1px solid white;
+}
+.policy-details-control-section .row .policy-control form {
+   display: flex;
+   flex-direction: column;
+}
+.policy-details-control-section .row .policy-control form textarea{
+    /* height: fit-content;
+    overflow: hidden; */
+    
+ }
+.policy-details-control-section .row .policy-control form label{
+    font-size: 30px;
+    color: rgb(200, 196, 196);
+    text-align: center;
+ }
+.policy-details-control-section .row table {
+    width: 100%;
+    margin-top: 12px;
+ 
+ }
+
+

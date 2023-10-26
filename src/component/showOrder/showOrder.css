@@ -1,0 +1,112 @@
+.show-order-section{
+    min-height: 100vh;
+    background-color: rgb(35, 37, 37);
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.show-order-section .flex{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.show-order-section .flex .heading{
+    color: rgb(133, 133, 133);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+.order-status{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+
+}
+.show-order-section .payment-details table,
+.show-order-section .address-table table,
+.order-status table{
+
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid rgb(65, 65, 65);
+    border-radius: 20px;
+}
+.order-status table tr{
+
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+table .table-cell{
+    color: white;       
+    padding: 20px;
+    
+    border: 1px solid rgb(65, 65, 65);
+
+}
+.show-order-section .payment-details,
+.show-order-section .your-order{
+    display: flex;
+    justify-content: center;
+   
+   
+}
+.show-order-section .payment-details .center,
+.show-order-section .address-table .center,
+.show-order-section .your-order .center{
+    max-width: 500px;
+    width: 100%;
+    display: grid;
+    row-gap: 10px;
+}
+.show-order-section .payment-details h1,
+.show-order-section .address-table h1,
+.show-order-section .your-order .center h1{
+    color: rgb(133, 133, 133);
+    margin-bottom: 10px;
+    
+}
+.show-order-section .your-order .total td:last-child span{
+   
+    font-size: 12px;
+}
+
+
+.show-order-section .address-table{
+    display: flex;
+    justify-content: center;
+ 
+}
+.show-order-section .address-table .center table tr:nth-child(3),
+.show-order-section .address-table .center table tr:nth-child(1){
+    border-top: 2px solid rgb(206, 206, 206);
+    border-right: 2px solid rgb(206, 206, 206);
+    border-left: 2px solid rgb(206, 206, 206);
+}
+.show-order-section .address-table .center table tr:nth-child(4),
+.show-order-section .address-table .center table tr:nth-child(2){
+    border-bottom: 2px solid rgb(206, 206, 206);
+    border-right: 2px solid rgb(206, 206, 206);
+    border-left: 2px solid rgb(206, 206, 206);
+}
+.show-order-section .order-tracking-id-add-section .container,
+.show-order-section .order-profit-add-section .container{
+ display: flex;
+ justify-content: center;
+}
+.show-order-section .order-tracking-id-add-section .container form input,
+.show-order-section .order-profit-add-section .container form input{
+    padding: 5px 10px;
+   }
+   .show-order-section .order-tracking-id-add-section .container form button,
+   .show-order-section .order-profit-add-section .container form button{
+    height: 45px;
+   } 
+/* .show-order-section .address-table tr:nth-child(3)
+{
+    margin-top: 10px;
+    
+} */
+.show-order-section .order-control{
+    display: flex;
+    justify-content: center;
+}
