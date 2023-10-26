@@ -1,1 +1,2 @@
-export const endpoint = "http://127.0.0.1:5000"
+export const endpoint = process.env.REACT_APP_FLASK_BACKEND_ENDPOINT
+console.log("Endpoint:", endpoint);
