@@ -23,11 +23,11 @@ export const ShowHighlights=()=> {
         useLayoutEffect(()=>{
           dispatch(getAccessToken())
 
-          if(access_token==null){
+          if(access_token===null){
 
           
             navigate('/signin');
-          }else if(access_token!=""){
+          }else if(access_token!==""){
             if(is_expired(access_token)){
               dispatch(resetAccessToken())
               navigate('/signin')
@@ -52,7 +52,7 @@ export const ShowHighlights=()=> {
 
           try{
             const response = await axios.post(`${endpoint}/admin-panel/highlight-list`,json,config)
-            if(response.status==200){
+            if(response.status===200){
             
               setHighlight(response.data.data.highlights)
               setLoading(false)
@@ -60,11 +60,11 @@ export const ShowHighlights=()=> {
           
           } catch(e){ 
             setLoading(false)
-              if (e.response==undefined){
+              if (e.response===undefined){
                 navigate('/notfound')
               }
              
-              else if (e.response.status==401){
+              else if (e.response.status===401){
                 navigate('/signin')
               } else{
                 navigate('/notfound')
@@ -85,7 +85,7 @@ export const ShowHighlights=()=> {
        <div className='row'>
        <div className='heading' >Highlights</div>
        <button className='btn btn-dark' onClick={()=>navigate('/addhighlight')}>Add Highlight</button>
-       {highlight.length!=0 ? 
+       {highlight.length!==0 ? 
 
        highlight.map((value)=> <ImageDiv data={value} seterror={setErrorpopup} setloading={setLoading} access_token={access_token}/>)
        :

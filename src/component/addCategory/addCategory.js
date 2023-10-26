@@ -2,7 +2,7 @@
 import "./addCategory.css"
 import {useNavigate} from "react-router-dom"
 
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
+import {React,useLayoutEffect,useState,useRef} from "react"
 import {ImageCard} from './component/imageCard'
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
@@ -26,10 +26,10 @@ export const AddCategory = ()=>{
     useLayoutEffect(()=>{
       dispatch(getAccessToken())
 
-      if(access_token==null){
+      if(access_token===null){
 
         navigate('/signin');
-      }else if(access_token!=""){
+      }else if(access_token!==""){
         if(is_expired(access_token)){
           dispatch(resetAccessToken())
           navigate('/signin')
@@ -68,7 +68,7 @@ export const AddCategory = ()=>{
       };
       try{
           const respone = await axios.post(`${endpoint}/product/admin/add-category`,formdata,config)
-         if(respone.status==200||respone.status==201){
+         if(respone.status===200||respone.status===201){
            setLoading(false)
 
             
@@ -80,11 +80,11 @@ export const AddCategory = ()=>{
         if (!error.response){
             navigate('/notfound')
         }
-        else if(error.response.status==401){
+        else if(error.response.status===401){
          
           navigate('/signin')
         }
-        else if(error.response.status==412){
+        else if(error.response.status===412){
           setErrorpopup('Category already exist')
         }else{
           navigate('/notfound')
@@ -92,7 +92,6 @@ export const AddCategory = ()=>{
         }
       }
 
-const fake="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5Njk1MDc2MSwianRpIjoiMTg1ZGNlNWItMjZmMS00MzQzLTk5YTYtODE4MjNmODFmM2UzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Imlyc2hhZDNAZ21haWwuY29tIiwibmJmIjoxNjk2OTUwNzYxLCJleHAiOjE2OTk1NDI3NjF9.QAFBCSgp2eO-0Y2Fl-vD2SbF2EjFFOCtq7S5DoiWh0o"
 
    }
     return (

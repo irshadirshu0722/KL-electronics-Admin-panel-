@@ -40,11 +40,11 @@ export const BankDetailsControl = ()=>{
     useLayoutEffect(()=>{
         dispatch(getAccessToken())
   
-        if(access_token==null){
+        if(access_token===null){
   
           navigate('/signin');
         }
-        else if (access_token != ""){
+        else if (access_token !== ""){
           if(is_expired(access_token)){
             dispatch(resetAccessToken())
             navigate('/signin')
@@ -71,14 +71,14 @@ export const BankDetailsControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/bank-details-data    `,json,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 setbankDetailsinput(response.data.data)
                 setbankDetailsdata(response.data.data)
             }
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
+            if (error.response===undefined){
                 setErrorpopup("request failed")
             }else{
                 navigate('/notfound')
@@ -107,14 +107,14 @@ export const BankDetailsControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/bank-details-control`,bankDetailsinput,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 navigate('/')
 
             }
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
+            if (error.response===undefined){
                 setErrorpopup("request failed")
             }else{
                 navigate('/notfound')

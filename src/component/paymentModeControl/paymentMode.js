@@ -1,13 +1,12 @@
 import "./paymentmode.css"
 
 
-import {useEffect,useState,useLayoutEffect} from 'react'
-import {useNavigate ,useParams  } from "react-router-dom"
+import {useState,useLayoutEffect} from 'react'
+import {useNavigate   } from "react-router-dom"
 
 import {getAccessToken,resetAccessToken } from "../../store"
 import {is_expired} from '../checktokenexpire'
 import {Loading} from "../../component/loading"
-import {ErrorPopUp} from "../../component/errorpopup"
 import axios from 'axios'
 import {endpoint} from "../../backend"
 import {useDispatch,useSelector} from "react-redux"
@@ -22,16 +21,15 @@ export const PaymentModeControl = ()=>{
     const [cashOnDeliveryEnabled, setCashOnDeliveryEnabled] = useState(false);
   
     const [isloading,setLoading] = useState(true)
-    const [errorpopup,setErrorpopup] = useState("")
   
     useLayoutEffect(()=>{
         dispatch(getAccessToken())
   
-        if(access_token==null){
+        if(access_token===null){
   
           navigate('/signin');
         }
-        else if (access_token != ""){
+        else if (access_token !== ""){
           if(is_expired(access_token)){
             dispatch(resetAccessToken())
             navigate('/signin')
@@ -58,7 +56,7 @@ export const PaymentModeControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/payment-mode-data    `,json,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 setPaymentModeState(response.data.data)
                 setDirectTransferEnabled(response.data.data.direct_bank_transfer)
                 setOnlinePaymentEnabled(response.data.data.online_payment)
@@ -67,11 +65,9 @@ export const PaymentModeControl = ()=>{
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
-                setErrorpopup("request failed")
-            }else{
+            
                 navigate('/notfound')
-                }
+                
               
             
             }
@@ -111,21 +107,19 @@ export const PaymentModeControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/payment-mode-control`,json,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 navigate('/')
 
             }
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
-                setErrorpopup("request failed")
-            }else{
+            
                 navigate('/notfound')
-                }
+            }
               
             
-            }
+            
     
       };
       if(isloading){

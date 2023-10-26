@@ -4,7 +4,6 @@ import axios from "axios"
 import {useState} from "react"
 
 import { endpoint } from "../../../backend"
-import {Loading} from "../../../component/loading"
 import {ErrorPopUp} from "../../../component/errorpopup"
 export const OrderControl = (props)=>{
     
@@ -26,7 +25,7 @@ export const OrderControl = (props)=>{
         try{
             const response = await axios.post(`${endpoint}/order/admin/order-status-${action}-order`,json,config);
             setloading(false)
-            if(response.status==200){
+            if(response.status===200){
              
              window.location.reload()
             
@@ -35,11 +34,11 @@ export const OrderControl = (props)=>{
 
         }catch(e){
           setloading(false)
-            if(e.response==undefined){
+            if(e.response===undefined){
             
             setErrorpopup("Request  Failed try again later")
 
-            }else if (e.response.status==401){
+            }else if (e.response.status===401){
             navigate('/signin')
             }else{
 

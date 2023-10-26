@@ -1,4 +1,4 @@
-import {useEffect, useReducer, useState} from 'react'
+import { useState} from 'react'
 import { useForm } from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -57,7 +57,7 @@ export const SignInForm = ()=>{
       const response = await axios.post(`${endpoint}/auth/admin/login`,body)
 
       
-      if(response.status==200){
+      if(response.status===200){
         const access_token = response.data.access_token
         dispatch(setAccessToken(access_token))
      
@@ -65,15 +65,15 @@ export const SignInForm = ()=>{
       }
       
     }catch (error) {
-      if (error.response==undefined){
+      if (error.response===undefined){
         navigate('/notfound')
 
       }
-      else if ( error.response.status==401){
+      else if ( error.response.status===401){
         SetMessage("Admin doesn't exist")
 
       }
-      else if(error.response.status==400)
+      else if(error.response.status===400)
       {
          SetMessage("Password is Wrong")
       }

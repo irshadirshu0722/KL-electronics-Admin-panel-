@@ -1,6 +1,6 @@
 import {useNavigate  } from "react-router-dom"
 
-import {useLayoutEffect,useEffect,useState,React,useRef} from "react"
+import {useLayoutEffect,useState,React,useRef} from "react"
 import "./addcoupon.css"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
@@ -26,11 +26,11 @@ export const AddCoupon =  ()=> {
   useLayoutEffect(()=>{
     dispatch(getAccessToken())
 
-      if(access_token==null){
+      if(access_token===null){
 
         navigate('/signin');
       }
-      else if(access_token!=""){
+      else if(access_token!==""){
         if(is_expired(access_token)){
           dispatch(resetAccessToken())
           navigate('/signin')
@@ -61,7 +61,7 @@ export const AddCoupon =  ()=> {
      };
      try{
         const respone = await axios.post(`${endpoint}/coupon-code/admin/create-coupon`,json,config)
-        if(respone.status==200||respone.status==201){
+        if(respone.status===200||respone.status===201){
            setLoading(false)
            navigate('/allcouponcode ')
         }
@@ -72,10 +72,10 @@ export const AddCoupon =  ()=> {
 
        }
        
-       else if(error.response.status==412){
+       else if(error.response.status===412){
         setErrorpopup('Coupon code already exist')
       }
-       else if(error.response.status==401){
+       else if(error.response.status===401){
          navigate('/signin')
        }else{
         navigate('/notfound')

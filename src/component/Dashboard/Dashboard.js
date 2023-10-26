@@ -1,11 +1,10 @@
 
-import shoplogo from "../../images/logo.jpg"
 import "./Dashboard.css"
 import moneylogo from "../../images/Money.png"
 import Product from "../../images/product.png"
 import Order from "../../images/Order.png"
 import {useNavigate  } from "react-router-dom"
-import {React,useLayoutEffect,useEffect,useState} from "react"
+import {React,useLayoutEffect,useState} from "react"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
 import axios from "axios"
@@ -33,14 +32,14 @@ export const Dashboard = ()=>{
 
          try{
             const response = await axios.get(`${endpoint}/admin-panel/is-admin-exist`,config)
-              if (response.status==200){
+              if (response.status===200){
              }
               setLoading(false)
               
          }catch (error){
             if(!error.response){
             }
-            else if(error.response.status==401){
+            else if(error.response.status===401){
                 navigate('/signin')
             }
          }
@@ -48,10 +47,10 @@ export const Dashboard = ()=>{
     useLayoutEffect(()=>{
         dispatch(getAccessToken())
 
-        if(access_token==null){
+        if(access_token===null){
             navigate('/signin');
         }
-        else if(access_token!=""){
+        else if(access_token!==""){
             if(is_expired(access_token)){
                 dispatch(resetAccessToken())
                 navigate('/signin')
@@ -75,7 +74,7 @@ export const Dashboard = ()=>{
         try{
           const response = await axios.post(`${endpoint}/admin-panel/statics`,json,config);
     
-          if(response.status==200){
+          if(response.status===200){
             setLoading(false)
             const token = response.data.data; 
             setData(token)
@@ -87,11 +86,11 @@ export const Dashboard = ()=>{
             }catch(e){  
                 console.log('hi error')
                 setLoading(false)
-              if(e.response==undefined){
+              if(e.response===undefined){
                 navigate('/notfound')
 
               }
-              else if(e.response.status==401){
+              else if(e.response.status===401){
                 navigate('/signin')
               }else{
                 navigate('/notfound')
@@ -128,7 +127,7 @@ export const Dashboard = ()=>{
                          <div>₹{data.total_sales}</div>
                      </div>
                      <div className="total-sales-logo">
-                         <img  src={moneylogo}/>
+                         <img  src={moneylogo} alt={'Money svg'}/>
                      </div>
                  </div>
                  <div className="total-Product-sold">
@@ -137,7 +136,7 @@ export const Dashboard = ()=>{
                          <div>{data.total_product_sold}</div>
                      </div>
                      <div className="total-sales-logo">
-                         <img  src={Product}/>
+                         <img  src={Product} alt={'Logo'}/>
                      </div>
                  </div>
              </div>   
@@ -280,7 +279,7 @@ export const Dashboard = ()=>{
                          <div>{data.total_orders}</div>
                      </div>
                      <div className="total-sales-logo">
-                         <img  src={Order}/>
+                         <img  src={Order} alt={'Logo'}/>
                      </div>           
              </div>
                  <div className="order-status">

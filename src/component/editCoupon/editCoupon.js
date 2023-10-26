@@ -1,6 +1,6 @@
 import {useNavigate, useParams  } from "react-router-dom"
 
-import {useLayoutEffect,useEffect,useState,React,useRef} from "react"
+import {useLayoutEffect,useState,React,useRef} from "react"
 import "./editCoupon.css"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
@@ -28,11 +28,11 @@ export const EditCoupon =  ()=> {
   useLayoutEffect(()=>{
     dispatch(getAccessToken())
 
-      if(access_token==null){
+      if(access_token===null){
 
         navigate('/signin');
       }
-      else if(access_token!=""){
+      else if(access_token!==""){
         if(is_expired(access_token)){
           dispatch(resetAccessToken())
           navigate('/signin')
@@ -107,7 +107,7 @@ export const EditCoupon =  ()=> {
      };
      try{
         const respone = await axios.post(`${endpoint}/coupon-code/admin/edit-coupon-code`,json,config)
-        if(respone.status==200||respone.status==201){
+        if(respone.status===200||respone.status===201){
            setLoading(false)
            navigate('/allcouponcode')
         }
@@ -116,9 +116,9 @@ export const EditCoupon =  ()=> {
        navigate('/notfound')
       }
        
-       else if(error.response.status==412){
+       else if(error.response.status===412){
         setErrorpopup('This coupon code already exist')}
-       else if(error.response.status==401){
+       else if(error.response.status===401){
       setErrorpopup('Forbidden go and sign in');
       navigate('/signin')
       }else{

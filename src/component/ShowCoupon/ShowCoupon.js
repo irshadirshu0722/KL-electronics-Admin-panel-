@@ -24,11 +24,11 @@ export  function ShowCoupon() {
   useLayoutEffect(()=>{
     dispatch(getAccessToken())
 
-    if(access_token==null){
+    if(access_token===null){
 
     
       navigate('/signin');
-    }else if(access_token!=""){
+    }else if(access_token!==""){
       if(is_expired(access_token)){
         dispatch(resetAccessToken())
         navigate('/signin')
@@ -54,7 +54,7 @@ export  function ShowCoupon() {
 
       try{
         const response = await axios.post(`${endpoint}/admin-panel/coupon-list`,json,config)
-        if(response.status==200){
+        if(response.status===200){
       
           setCoupons(response.data.data.coupon_codes)
           setLoading(false)
@@ -62,12 +62,12 @@ export  function ShowCoupon() {
       
       } catch(e){
          setLoading(false)
-          if (e.response==undefined){
+          if (e.response===undefined){
             navigate('/notfound')
 
           }
          
-          else if (e.response.status==401){
+          else if (e.response.status===401){
             navigate('/signin')
           }else{
             navigate('/notfound')
@@ -80,7 +80,7 @@ export  function ShowCoupon() {
     <>
     {isloading && <Loading/>}
     <div className='add-coupon-code-btn'><button onClick={()=>navigate('/addcoupon')} className='bt btn-dark'>Add Coupon</button></div>
-    {coupons.length!=0 ?
+    {coupons.length!==0 ?
     <section className='coupon-code-section'>
       {errorpopup && <ErrorPopUp message={errorpopup}/>}
         <div className='container'>

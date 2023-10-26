@@ -24,10 +24,10 @@ export const ShowOrders = ()=>{
     useLayoutEffect(()=>{
     dispatch(getAccessToken())
 
-    if(access_token==null){
+    if(access_token===null){
 
       navigate('/signin');
-    }else if(access_token!=""){
+    }else if(access_token!==""){
       if(is_expired(access_token)){
         dispatch(resetAccessToken())
         navigate('/signin')
@@ -54,7 +54,7 @@ export const ShowOrders = ()=>{
 
       try{
         const response = await axios.post(`${endpoint}/admin-panel/orders-list`,json,config)
-        if(response.status==200){
+        if(response.status===200){
        
           setOrders(response.data.data.orders)
           setButtonState(response.data.data.button_state)
@@ -64,11 +64,11 @@ export const ShowOrders = ()=>{
        
       } catch(e){ 
          setLoading(false)
-          if (e.response==undefined){
+          if (e.response===undefined){
             navigate('/notfound')
           }
           
-          else if (e.response.status==401){
+          else if (e.response.status===401){
             navigate('/signin')
           }else{
             navigate('/notfound')

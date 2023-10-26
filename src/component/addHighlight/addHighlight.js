@@ -2,7 +2,7 @@
 import "./addHighlights.css"
 import {useNavigate  } from "react-router-dom"
 
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
+import {React,useLayoutEffect,useState,useRef} from "react"
 import {ImageCard} from './component/imageCard'
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
@@ -25,11 +25,11 @@ export const AddHighlight = ()=>{
     useLayoutEffect(()=>{
       dispatch(getAccessToken())
 
-        if(access_token==null){
+        if(access_token===null){
 
           navigate('/signin');
         }
-        else if(access_token!=""){
+        else if(access_token!==""){
           if(is_expired(access_token)){
             dispatch(resetAccessToken())
             navigate('/signin')
@@ -65,7 +65,7 @@ export const AddHighlight = ()=>{
       };
       try{
           const response = await axios.post(`${endpoint}/admin-panel/add-highlight`,formdata,config)
-         if(response.status==200||response.status==201){
+         if(response.status===200||response.status===201){
          
            navigate('/allhighlights')
          }
@@ -77,10 +77,10 @@ export const AddHighlight = ()=>{
           navigate('/notfound')
         }
         
-        else if(error.response.status==401){
+        else if(error.response.status===401){
           navigate('/signin')
         }
-        else if(error.response.status==402){
+        else if(error.response.status===402){
           setErrorpopup('Highlights not selected')
 
          

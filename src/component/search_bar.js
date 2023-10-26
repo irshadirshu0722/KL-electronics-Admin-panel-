@@ -19,7 +19,7 @@ export  const  SearchBar = ()=> {
       const onSearch = (e)=>{
         
         e.preventDefault()
-        if (searchType=="text"){
+        if (searchType==="text"){
             navigate(`/search-product/${searchitem.current.value}/1`)
         }else{
          

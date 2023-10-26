@@ -2,7 +2,7 @@
 import "./addProduct.css"
 // import {script} from './script'
 import {useNavigate  } from "react-router-dom"
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
+import {React,useLayoutEffect,useState,useRef} from "react"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
 import axios from 'axios'
@@ -15,7 +15,6 @@ import {Loading} from "../../component/loading"
 import {ErrorPopUp} from "../../component/errorpopup"
 import {is_expired} from '../../component/checktokenexpire'
 
-const defaultimage = "https://powermaclive.eleospages.com/images/products_attr_img/matrix/default.png"
 
 export const AddProduct = ()=>{
     const [isloading,setLoading] = useState(true)
@@ -39,11 +38,11 @@ export const AddProduct = ()=>{
     useLayoutEffect(()=>{
       dispatch(getAccessToken())
 
-      if(access_token==null){
+      if(access_token===null){
 
         navigate('/signin');
       }
-      else if (access_token != ""){
+      else if (access_token !== ""){
         if(is_expired(access_token)){
           dispatch(resetAccessToken())
           navigate('/signin')
@@ -63,7 +62,7 @@ export const AddProduct = ()=>{
      stock:yup.number().required(),
 
   })
-  const {register,handleSubmit,formState:{errors}} =useForm({
+  const {register,handleSubmit} =useForm({
     resolver:yupResolver(schema)
   })
   
@@ -95,7 +94,7 @@ export const AddProduct = ()=>{
     try{
       const response = await axios.post(`${endpoint}/product/admin/add-product`,formdata,config)
       
-      if (response.status==200 || response.status==201){
+      if (response.status===200 || response.status===201){
         setLoading(false)
         navigate('/allproduct/1')
       }
@@ -107,11 +106,11 @@ export const AddProduct = ()=>{
 
       }
      
-      else if (error.respone.status==401){
+      else if (error.respone.status===401){
       
         navigate('/signin')
       }
-      else if (error.respone.status==404){
+      else if (error.respone.status===404){
         setErrorpopup("Category not found")
       }
       else{
@@ -135,8 +134,7 @@ export const AddProduct = ()=>{
           try{
             const response = await axios.get(`${endpoint}/admin-panel/category-list`,config)
 
-            if (response.status==200){
-              const new_list = []
+            if (response.status===200){
              
               const category = response.data.data.categories
           
@@ -148,10 +146,10 @@ export const AddProduct = ()=>{
             }
 
           }catch (error){
-            if (error.response==undefined){
+            if (error.response===undefined){
               setLoading(false)
             }
-            else if ( error.response.status==401){
+            else if ( error.response.status===401){
                 setLoading(false)
                 navigate('/signin');
 
@@ -204,8 +202,7 @@ export const AddProduct = ()=>{
     }
 
 
-    const check = ()=>{
-    }
+   
     const handleImageChange = (e) => {
         const filesObject = selectedImagestosend.current.files;
 
@@ -219,7 +216,7 @@ export const AddProduct = ()=>{
         
     };
     const handleimageremove = (idxtoremove)=>{
-      setImagetosend((prev)=>prev.filter((value,idx)=> idxtoremove!=idx ))
+      setImagetosend((prev)=>prev.filter((value,idx)=> idxtoremove!==idx ))
 
       
     }

@@ -1,7 +1,7 @@
 
 import "./category.css"
-import {Link,useNavigate} from "react-router-dom"
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
+import {useNavigate} from "react-router-dom"
+import {React,useLayoutEffect,useState} from "react"
 import {CategoryCard} from "./component/categoryCard"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
@@ -18,14 +18,13 @@ export const Category=()=>{
     const navigate = useNavigate();
 
     const [isloading,setLoading]  = useState(false)
-    const [errorpopup,setErrorpopup] = useState("")
   useLayoutEffect(()=>{
     dispatch(getAccessToken())
 
-    if(access_token==null){
+    if(access_token===null){
 
       navigate('/signin');
-    }else if(access_token!=""){
+    }else if(access_token!==""){
       if(is_expired(access_token)){
         dispatch(resetAccessToken())
         navigate('/signin')
@@ -49,7 +48,7 @@ export const Category=()=>{
     try{
       const response = await axios.get(`${endpoint}/admin-panel/category-list`,config)
 
-     if (response.status==200){
+     if (response.status===200){
       setCategories(response.data.data.categories)
      }
      setLoading(false)
@@ -57,11 +56,11 @@ export const Category=()=>{
 
     }catch(e){ 
           setLoading(false)
-     if(e.response==undefined){
+     if(e.response===undefined){
       navigate('/notfound')
 
      }
-      else if(e.response.status==401){
+      else if(e.response.status===401){
       navigate("/signin")
      }else{
       navigate('/notfound')
@@ -79,7 +78,6 @@ export const Category=()=>{
         <div>
          
           <section className="category-section">
-            {errorpopup && <ErrorPopUp  message={errorpopup}/>}
            
             <div className="container">
               <div className="row">
@@ -100,7 +98,7 @@ export const Category=()=>{
                   
                 </div>
 
-                 {categories.length==0 && <div className="category-not-available">  Category Not added yet</div>}
+                 {categories.length===0 && <div className="category-not-available">  Category Not added yet</div>}
               </div>
             </div>
            

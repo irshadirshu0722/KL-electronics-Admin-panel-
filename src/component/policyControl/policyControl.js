@@ -1,5 +1,4 @@
 import "./policyControl.css"
-import{script} from './script'
 import {useState,useLayoutEffect, useEffect} from 'react'
 import {useNavigate   } from "react-router-dom"
 
@@ -34,11 +33,11 @@ export const PolicyControl = ()=>{
     useLayoutEffect(()=>{
         dispatch(getAccessToken())
   
-        if(access_token==null){
+        if(access_token===null){
   
           navigate('/signin');
         }
-        else if (access_token != ""){
+        else if (access_token !== ""){
           if(is_expired(access_token)){
             dispatch(resetAccessToken())
             navigate('/signin')
@@ -76,13 +75,13 @@ export const PolicyControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/policy-details-data    `,json,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 setpolicyinput(response.data.data)
             }
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
+            if (error.response===undefined){
                 setErrorpopup("request failed")
             }else{
                 navigate('/notfound')
@@ -112,14 +111,14 @@ export const PolicyControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/policy-details-control`,policyinput,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 navigate('/')
 
             }
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
+            if (error.response===undefined){
                 setErrorpopup("request failed")
             }else{
                 navigate('/notfound')

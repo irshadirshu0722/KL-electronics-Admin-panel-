@@ -18,7 +18,7 @@ export const NotFound = ()=>{
   
         console.log("not exist");
         navigate('/signin');
-      }else if(access_token!=""){
+      }else if(access_token!==""){
         if(is_expired(access_token)){
           dispatch(resetAccessToken())
           navigate('/signin')

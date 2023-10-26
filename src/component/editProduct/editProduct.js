@@ -2,7 +2,7 @@
 import "./editProduct.css"
 // import {script} from './script'
 import {useNavigate ,useParams  } from "react-router-dom"
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
+import {React,useLayoutEffect,useState,useRef} from "react"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
 import axios from 'axios'
@@ -48,11 +48,11 @@ export const EditProduct = ()=>{
     useLayoutEffect(()=>{
       dispatch(getAccessToken())
 
-      if(access_token==null){
+      if(access_token===null){
 
         navigate('/signin');
       }
-      else if (access_token != ""){
+      else if (access_token !== ""){
         if(is_expired(access_token)){
           dispatch(resetAccessToken())
           navigate('/signin')
@@ -94,7 +94,7 @@ export const EditProduct = ()=>{
     try{
       const response = await axios.post(`${endpoint}/product/admin/edit-product`,formdata,config)
       
-      if (response.status==200 || response.status==201){
+      if (response.status===200 || response.status===201){
         setLoading(false)
 
         navigate('/allproduct/1')
@@ -102,16 +102,16 @@ export const EditProduct = ()=>{
       
     }catch (error){
        setLoading(false)
-      if (error.response==undefined){
+      if (error.response===undefined){
         navigate('/notfound')
 
       }
       
-      else if (error.response.status==401){
+      else if (error.response.status===401){
         setErrorpopup('Admin not Found')
         navigate('/signin')
       }
-      else if (error.response.status==404){
+      else if (error.response.status===404){
        setErrorpopup('Category not found')
       }else{
         navigate('/notfound')
@@ -140,7 +140,7 @@ export const EditProduct = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/get-product-for-edit`,json,config)
 
-            if (response.status==200){
+            if (response.status===200){
               
               setLoading(false)
               setAdditionalInformation(response.data.data.product.additional_information)
@@ -153,7 +153,7 @@ export const EditProduct = ()=>{
               const imageurl = response.data.data.product.images.map((value)=>value.image)
               const files = await fetchImageFiles(imageurl)
 
-              setImagetosend(()=>files.filter((img)=>img!=undefined))
+              setImagetosend(()=>files.filter((img)=>img!==undefined))
               
               setButtonEnable(true)
 
@@ -161,7 +161,7 @@ export const EditProduct = ()=>{
             }
 
           }catch (error){
-            if (error.response==undefined){
+            if (error.response===undefined){
               setErrorpopup("request failed")
             }else{
                 navigate('/notfound')
@@ -232,8 +232,6 @@ export const EditProduct = ()=>{
 
    
     const handleImageChange = (e) => {
-        const files = e.target.files; 
-        const imagesArray = [];
         setImagetosend([...imagetosend,])
         const filesObject = selectedImagestosend.current.files;
 
@@ -247,7 +245,7 @@ export const EditProduct = ()=>{
         
     };
     const handleimageremove = (idxtoremove)=>{
-      setImagetosend((prev)=>prev.filter((value,idx)=> idxtoremove!=idx ))
+      setImagetosend((prev)=>prev.filter((value,idx)=> idxtoremove!==idx ))
 
       
     }
@@ -315,7 +313,7 @@ export const EditProduct = ()=>{
               <label htmlFor="category">Product Category:</label>
                <select id="category" name="category" ref={selectedcategory}>
                {categories.map((value, idx) => (
-                value!=curcategory ? <option key={idx}>{value}</option>:<option key={idx} selected >{value}</option>
+                value!==curcategory ? <option key={idx}>{value}</option>:<option key={idx} selected >{value}</option>
 
                ))}
                 

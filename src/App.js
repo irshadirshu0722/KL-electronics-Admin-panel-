@@ -1,6 +1,3 @@
-// import './App.css';
-
-import axios from "axios"
 import {Dashboard} from './component/Dashboard/Dashboard'
 import {AllProduct} from './component/allproduct/allProduct'
 import {ShowProduct} from './component/ShowProduct/ShowProduct'
@@ -30,7 +27,7 @@ import {Provider} from "react-redux"
 import {store} from "./store"
 import {CategoryProducts} from './component/categoryproducts/categoryproduct'
 import './general.css'
-import {BrowserRouter as Router ,Routes,Route,Link} from "react-router-dom"
+import {BrowserRouter as Router ,Routes,Route} from "react-router-dom"
 function App() {
   
   return (

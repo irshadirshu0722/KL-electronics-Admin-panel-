@@ -1,7 +1,6 @@
 import "./categoryproducts.css"
-import {useParams,useNavigate,Link} from "react-router-dom"
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
-import {SearchBar} from "../../component/search_bar"
+import {useParams,useNavigate} from "react-router-dom"
+import {React,useLayoutEffect,useState} from "react"
 import {ProductCard} from "./component/ProductCard"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
@@ -24,10 +23,10 @@ export const CategoryProducts = ()=>{
   useLayoutEffect(()=>{
     dispatch(getAccessToken())
 
-    if(access_token==null){
+    if(access_token===null){
 
       navigate('/signin');
-    }else if(access_token!=""){
+    }else if(access_token!==""){
       if(is_expired(access_token)){
         dispatch(resetAccessToken())
         navigate('/signin')
@@ -62,7 +61,7 @@ const reload = (url)=>{
 
       try{
         const response = await axios.post(`${endpoint}/admin-panel/category-items`,json,config)
-        if(response.status==200){
+        if(response.status===200){
           setProducts(response.data.data.products)
           setButtonState(response.data.data.button_state)
           
@@ -70,11 +69,11 @@ const reload = (url)=>{
         }
        
       } catch(e){
-          if (e.response==undefined){
+          if (e.response===undefined){
             navigate('/notfound')
           }
           
-          else if (e.response.status==401){
+          else if (e.response.status===401){
             navigate('/signin')
           }
           else{
@@ -119,25 +118,25 @@ const reload = (url)=>{
            
            
         </div>
-       {products.length==0&&<div className="product-not-available"> Product Not Available</div>}  
+       {products.length===0&&<div className="product-not-available"> Product Not Available</div>}  
       </div>
       <div  className="product-next-page">
         <div>
           <div className="prev-btn">
         {
-          (buttonstate.prev_button && products.length!=0) &&
+          (buttonstate.prev_button && products.length!==0) &&
           <button onClick={()=>reload(`/categoryproducts/${category_name}/${parseInt(page_no)-1}`)} className="prev">
           <i id="left" className="fa-solid fa-angle-left"></i>
         </button>
         }  
         </div>
        <div className="page-no">
-       {products.length!=0&& page_no}  
+       {products.length!==0&& page_no}  
        </div>
        <div className="next-btn">
         
           {
-             (buttonstate.next_button && products.length!=0) &&
+             (buttonstate.next_button && products.length!==0) &&
           <button onClick={()=>reload(`/categoryproducts/${category_name}/${parseInt(page_no)+1}`)} className="next">
                <i id="right" className="fa-solid fa-angle-right"></i>
            </button>

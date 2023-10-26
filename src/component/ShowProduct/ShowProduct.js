@@ -4,7 +4,7 @@ import {script} from"./script"
 
 
 import {useNavigate ,useParams ,useLocation } from "react-router-dom"
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
+import {React,useEffect,useState} from "react"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
 import {Loading} from "../../component/loading"
@@ -28,12 +28,12 @@ export const ShowProduct=()=>{
   useEffect(()=>{
     dispatch(getAccessToken())
 
-    if(access_token==null){
+    if(access_token===null){
 
       
       navigate('/signin');
     }
-    else if (access_token != ""){
+    else if (access_token !== ""){
       if(is_expired(access_token)){
         dispatch(resetAccessToken())
         navigate('/signin')
@@ -69,7 +69,7 @@ export const ShowProduct=()=>{
     try{
           const response = await axios.post(`${endpoint}/admin-panel/get-product`,json,config);
 
-          if(response.status==200){
+          if(response.status===200){
             setProduct(response.data.data)
             setLoading(false)
         
@@ -79,12 +79,12 @@ export const ShowProduct=()=>{
     }catch(e){  
           setLoading(false)
 
-      if(e.response==undefined){
+      if(e.response===undefined){
         navigate('/notfound')
 
-      }else if (e.response.status==401){
+      }else if (e.response.status===401){
         navigate('/signin')
-      }else if (e.response.status==404){
+      }else if (e.response.status===404){
        setProduct({})
 
       }
@@ -113,7 +113,7 @@ export const ShowProduct=()=>{
     try{
       const response = await axios.post(`${endpoint}/product/admin/delete-product`,json,config);
 
-      if(response.status==200){
+      if(response.status===200){
         navigate('/allproduct/1')
         setLoading(false)
 
@@ -129,7 +129,7 @@ export const ShowProduct=()=>{
     return (
         <>
         {isloading && <Loading />}
-        {Object.keys(product).length!=0
+        {Object.keys(product).length!==0
         ?
         <> 
         <section className="showproduct">
@@ -146,9 +146,9 @@ export const ShowProduct=()=>{
            <ul className="">
         <i id="left" className="fa-solid fa-angle-left"></i>
 
-            {product?.images?.length!=0 && 
+            {product?.images?.length!==0 && 
             
-            product?.images?.map((value,idx)=><><li><img id="img-1" src={value.image} alt="Image not found"/></li></>)
+            product?.images?.map((value,idx)=><><li><img id="img-1" src={value.image} alt="Not found"/></li></>)
 
           
           }
@@ -167,7 +167,7 @@ export const ShowProduct=()=>{
     <div className="product-stat">
         <h1>{product?.name}</h1>
         <h5>{product?.price}₹</h5>
-        {product?.stock!=0 ? <h4> Availability : {product?.stock} in stock</h4>:<h4 style={{color:"red"}}>Out of Stock</h4>}
+        {product?.stock!==0 ? <h4> Availability : {product?.stock} in stock</h4>:<h4 style={{color:"red"}}>Out of Stock</h4>}
         
         
         <div>

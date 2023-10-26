@@ -36,11 +36,11 @@ export const DeliveryChargeControl = ()=>{
     useLayoutEffect(()=>{
         dispatch(getAccessToken())
   
-        if(access_token==null){
+        if(access_token===null){
   
           navigate('/signin');
         }
-        else if (access_token != ""){
+        else if (access_token !== ""){
           if(is_expired(access_token)){
             dispatch(resetAccessToken())
             navigate('/signin')
@@ -67,14 +67,14 @@ export const DeliveryChargeControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/delivery-charge-data    `,json,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 setdeliverychargeinput(response.data.data)
                 setdeliverychargedata(response.data.data)
             }
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
+            if (error.response===undefined){
                 setErrorpopup("request failed")
             }else{
                 navigate('/notfound')
@@ -104,14 +104,14 @@ export const DeliveryChargeControl = ()=>{
             
             const response = await axios.post(`${endpoint}/admin-panel/delivery-charge-control`,deliverychargeinput,config)
             setLoading(false)
-            if (response.status==200){
+            if (response.status===200){
                 navigate('/')
 
             }
 
             }catch (error){  
                 setLoading(false)
-            if (error.response==undefined){
+            if (error.response===undefined){
                 setErrorpopup("request failed")
             }else{
                 navigate('/notfound')

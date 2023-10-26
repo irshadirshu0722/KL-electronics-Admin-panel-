@@ -1,6 +1,5 @@
 
-import { Link,useNavigate } from 'react-router-dom';
-import  img from "../../../images/cart-item.jpg"
+import { useNavigate } from 'react-router-dom';
 export const ProductCard = (props)=>{
   const navigate = useNavigate();
 

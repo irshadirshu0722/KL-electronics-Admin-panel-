@@ -2,7 +2,7 @@ import "./showOrder.css"
 import{OrderCard} from "./component/OrderCard"
 import{OrderControl} from "./component/OrderControl"
 import {useNavigate ,useParams  } from "react-router-dom"
-import {React,useLayoutEffect,useEffect,useState,useRef} from "react"
+import {React,useLayoutEffect,useState} from "react"
 import {getAccessToken,resetAccessToken} from "../../store"
 import {useDispatch,useSelector} from "react-redux"
 import {Loading} from "../../component/loading"
@@ -31,10 +31,10 @@ export const ShowOrder = ()=>{
     useLayoutEffect(()=>{
         dispatch(getAccessToken())
     
-        if(access_token==null){
+        if(access_token===null){
         navigate('/signin');
         }
-        else if (access_token != ""){
+        else if (access_token !== ""){
           if(is_expired(access_token)){
             dispatch(resetAccessToken())
             navigate('/signin')
@@ -63,18 +63,18 @@ export const ShowOrder = ()=>{
         try{
               const response = await axios.post(`${endpoint}/admin-panel/get-order`,json,config);
     
-              if(response.status==200){
+              if(response.status===200){
                 setOrder(response.data.data)
                 setLoading(false)
                 setProfit(response.data.data.profit)
               }
     
         }catch(e){
-          if(e.response==undefined){
+          if(e.response===undefined){
            
             navigate('/notfound')
     
-          }else if (e.response.status==401){
+          }else if (e.response.status===401){
             navigate('/signin')
           }else{
     
@@ -103,18 +103,18 @@ export const ShowOrder = ()=>{
         try{
               const response = await axios.post(`${endpoint}/order/admin/order-profit-set`,json,config);
               setLoading(false)
-              if(response.status==200){
+              if(response.status===200){
                 setSuccessPopup("Profit Changed successfully")
                 setwindowreload(windowreload+1)
               }
     
         }catch(e){
           setLoading(false)
-          if(e.response==undefined){
+          if(e.response===undefined){
            
             navigate('/notfound')
     
-          }else if (e.response.status==401){
+          }else if (e.response.status===401){
             navigate('/signin')
           }else{
     
@@ -140,18 +140,18 @@ export const ShowOrder = ()=>{
         try{
               const response = await axios.post(`${endpoint}/order/admin/order-tracking-id-set`,json,config);
               setLoading(false)
-              if(response.status==200){
+              if(response.status===200){
                 setSuccessPopup("Tracking id Addedd  successfully")
                 setwindowreload(windowreload+1)
               }
     
         }catch(e){
           setLoading(false)
-          if(e.response==undefined){
+          if(e.response===undefined){
            
             navigate('/notfound')
     
-          }else if (e.response.status==401){
+          }else if (e.response.status===401){
             navigate('/signin')
           }else{
     
@@ -293,7 +293,7 @@ export const ShowOrder = ()=>{
 
                                                 </td>
                                             </tr>
-                                            {order.discount_rate!=0 &&
+                                            {order.discount_rate!==0 &&
                                             <tr>
                                                   <td className="table-cell">
                                                         Discount Rate
@@ -305,7 +305,7 @@ export const ShowOrder = ()=>{
                                                   </td>
                                               </tr>
                                                 }
-                                                {order.discount_amount!=0 &&
+                                                {order.discount_amount!==0 &&
                                             <tr>
                                                   <td className="table-cell">
                                                         Discount Amount

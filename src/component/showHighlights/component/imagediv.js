@@ -19,17 +19,17 @@ export const ImageDiv = (props)=>{
         try{
           const response = await axios.post(`${endpoint}/admin-panel/delete-highlight`,json,config);
     
-          if(response.status==200){
+          if(response.status===200){
             window.location.reload()
             setloading(false)
     
           }
     
             }catch(e){
-              if(e.response==undefined){
+              if(e.response===undefined){
                 seterror("Request  Failed try again later")
               }
-              else if(e.response.status==401){
+              else if(e.response.status===401){
                 navigate('/signin')
               }else{
                 seterror("Request  Failed try again later")
