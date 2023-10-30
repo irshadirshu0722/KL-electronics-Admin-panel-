@@ -142,9 +142,9 @@ export const ShowProduct=()=>{
           
            <div className="product-img">
         <div className="show-img">
-
+ <i id="left" className="fa-solid fa-angle-left"></i>
            <ul className="">
-        <i id="left" className="fa-solid fa-angle-left"></i>
+       
 
             {product?.images?.length!==0 && 
             
@@ -153,10 +153,10 @@ export const ShowProduct=()=>{
           
           }
           
-                      <i id="right" className="fa-solid fa-angle-right"></i>
 
 
            </ul>
+                      <i id="right" className="fa-solid fa-angle-right"></i>
 
         </div>
         
