@@ -55,17 +55,11 @@ export const Category=()=>{
 
 
     }catch(e){ 
-          setLoading(false)
-     if(e.response===undefined){
-             console.log("e.response is undefined")
-
-      navigate('/notfound')
-
-     }
-      else if(e.response.status===401){
+      setLoading(false)
+     if(e.response.status===401){
       navigate("/signin")
      }else{
-              console.log("error else")
+      console.log("error else")
 
       navigate('/notfound')
 
