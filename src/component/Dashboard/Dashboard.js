@@ -75,11 +75,12 @@ export const Dashboard = ()=>{
           const response = await axios.post(`${endpoint}/admin-panel/statics`,json,config);
     
           if(response.status===200){
-            setLoading(false)
+           
             const token = response.data.data; 
             setData(token)
-       
-            
+            console.log('data addedd')
+           setLoading(false)
+            console.log('loading false')
     
           }
     
